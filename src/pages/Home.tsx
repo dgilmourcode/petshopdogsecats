@@ -95,11 +95,11 @@ export default function Home() {
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-6 py-4">
+                <div className="absolute -bottom-4 -left-4 bg-white rounded-sm shadow-lg px-6 py-4">
                   <p className="text-3xl font-bold text-amber-500">+500</p>
                   <p className="text-sm text-gray-500">Pets felizes</p>
                 </div>
-                <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-lg px-6 py-4">
+                <div className="absolute -top-4 -right-4 bg-white rounded-sm shadow-lg px-6 py-4">
                   <p className="text-3xl font-bold text-amber-500">10+</p>
                   <p className="text-sm text-gray-500">Anos de experiência</p>
                 </div>
@@ -126,7 +126,7 @@ export default function Home() {
               </p>
               <Link
                 to="/produtos"
-                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg px-6 h-11 transition-colors"
+                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-sm px-6 h-11 transition-colors"
               >
                 Ver Todas as Ofertas
                 <ArrowRight className="h-4 w-4" />

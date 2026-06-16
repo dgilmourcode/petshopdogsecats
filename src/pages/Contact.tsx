@@ -62,9 +62,9 @@ export default function Contact() {
                 {contactInfo.map((item) => (
                   <div
                     key={item.title}
-                    className="p-6 rounded-2xl border border-gray-100 hover:border-amber-200 hover:shadow-md transition-all duration-300"
+                    className="p-6 rounded-sm border border-gray-100 hover:border-amber-200 hover:shadow-md transition-all duration-300"
                   >
-                    <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+                    <div className="w-10 h-10 bg-amber-100 rounded-sm flex items-center justify-center mb-4">
                       <item.icon className="h-5 w-5 text-amber-600" />
                     </div>
                     <h3 className="font-semibold text-gray-900 mb-2">
@@ -79,7 +79,7 @@ export default function Contact() {
                 ))}
               </div>
 
-              <div className="mt-8 p-6 rounded-2xl bg-gray-50 border border-gray-100">
+              <div className="mt-8 p-6 rounded-sm bg-gray-50 border border-gray-100">
                 <div className="flex items-start gap-3">
                   <PawPrint className="h-5 w-5 text-amber-500 mt-0.5 shrink-0" />
                   <p className="text-sm text-gray-500 leading-relaxed">
@@ -143,10 +143,10 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-gray-100 p-8">
+            <div className="rounded-sm border border-gray-100 p-8">
               {submitted ? (
                 <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-green-100 rounded-sm flex items-center justify-center mx-auto mb-4">
                     <Send className="h-8 w-8 text-green-600" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -165,7 +165,7 @@ export default function Contact() {
                         id="name"
                         placeholder="Seu nome"
                         required
-                        className="rounded-xl border-gray-200"
+                        className="rounded-sm border-gray-200"
                       />
                     </div>
                     <div className="space-y-2">
@@ -175,7 +175,7 @@ export default function Contact() {
                         type="email"
                         placeholder="seu@email.com"
                         required
-                        className="rounded-xl border-gray-200"
+                        className="rounded-sm border-gray-200"
                       />
                     </div>
                   </div>
@@ -184,7 +184,7 @@ export default function Contact() {
                     <Input
                       id="phone"
                       placeholder="(11) 99999-8888"
-                      className="rounded-xl border-gray-200"
+                      className="rounded-sm border-gray-200"
                     />
                   </div>
                   <div className="space-y-2">
@@ -193,7 +193,7 @@ export default function Contact() {
                       id="subject"
                       placeholder="Ex: Agendamento de banho"
                       required
-                      className="rounded-xl border-gray-200"
+                      className="rounded-sm border-gray-200"
                     />
                   </div>
                   <div className="space-y-2">
@@ -202,7 +202,7 @@ export default function Contact() {
                       id="message"
                       placeholder="Conte como podemos ajudar..."
                       required
-                      className="min-h-32 rounded-xl border-gray-200"
+                      className="min-h-32 rounded-sm border-gray-200"
                     />
                   </div>
                   <Button

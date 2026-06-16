@@ -312,7 +312,7 @@ export default function Products() {
                   <button
                     onClick={() => setPage((p) => Math.max(1, p - 1))}
                     disabled={safePage === 1}
-                    className="flex items-center justify-center w-9 h-9 rounded-lg border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    className="flex items-center justify-center w-9 h-9 rounded-sm border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </button>
@@ -329,7 +329,7 @@ export default function Products() {
                       <button
                         key={p}
                         onClick={() => setPage(p)}
-                        className={`flex items-center justify-center w-9 h-9 rounded-lg text-sm font-medium transition-all ${
+                        className={`flex items-center justify-center w-9 h-9 rounded-sm text-sm font-medium transition-all ${
                           safePage === p
                             ? "bg-gray-900 text-white shadow-sm"
                             : "border border-gray-200 text-gray-600 hover:border-gray-300 hover:text-gray-900"
@@ -343,7 +343,7 @@ export default function Products() {
                   <button
                     onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                     disabled={safePage === totalPages}
-                    className="flex items-center justify-center w-9 h-9 rounded-lg border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    className="flex items-center justify-center w-9 h-9 rounded-sm border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                   >
                     <ChevronRight className="h-4 w-4" />
                   </button>
@@ -356,7 +356,7 @@ export default function Products() {
 
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-12 shadow-sm border border-gray-100 text-center">
+          <div className="bg-white rounded-sm p-12 shadow-sm border border-gray-100 text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Não encontrou o que procura?
             </h2>

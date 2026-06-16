@@ -101,7 +101,7 @@ export default function About() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="text-center p-8 rounded-2xl bg-gray-50 border border-gray-100"
+                className="text-center p-8 rounded-sm bg-gray-50 border border-gray-100"
               >
                 <p className="text-4xl font-bold text-amber-500 mb-2">
                   {stat.number}
@@ -127,9 +127,9 @@ export default function About() {
             {benefits.map((item) => (
               <div
                 key={item.title}
-                className="group p-8 rounded-2xl border border-gray-100 hover:border-amber-200 hover:shadow-lg transition-all duration-300"
+                className="group p-8 rounded-sm border border-gray-100 hover:border-amber-200 hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-200 transition-colors">
+                <div className="w-12 h-12 bg-amber-100 rounded-sm flex items-center justify-center mb-5 group-hover:bg-amber-200 transition-colors">
                   <item.icon className="h-6 w-6 text-amber-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -156,9 +156,9 @@ export default function About() {
             {values.map((value) => (
               <div
                 key={value.title}
-                className="p-6 rounded-2xl bg-white border border-gray-100 hover:border-amber-200 hover:shadow-md transition-all duration-300"
+                className="p-6 rounded-sm bg-white border border-gray-100 hover:border-amber-200 hover:shadow-md transition-all duration-300"
               >
-                <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+                <div className="w-10 h-10 bg-amber-100 rounded-sm flex items-center justify-center mb-4">
                   <value.icon className="h-5 w-5 text-amber-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">
@@ -175,7 +175,7 @@ export default function About() {
 
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-amber-500 to-orange-500 rounded-3xl p-12 text-center text-white">
+          <div className="bg-gradient-to-br from-amber-500 to-orange-500 rounded-sm p-12 text-center text-white">
             <h2 className="text-4xl font-bold mb-4">
               Quer fazer parte dessa história?
             </h2>

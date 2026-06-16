@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
-import {
+import { ChevronRight } from "lucide-react";
+import { servicesData } from "@/data/services";
+import { Scissors, Stethoscope, Hotel, BookOpen, Bone, ShoppingBag } from "lucide-react";
+import Gallery from "@/components/Gallery";
+
+const iconMap: Record<string, React.ElementType> = {
   Scissors,
   Stethoscope,
   Hotel,
   BookOpen,
   Bone,
   ShoppingBag,
-} from "lucide-react";
-import Gallery from "@/components/Gallery";
+};
 
 const servicePhotos = [
   {
@@ -40,75 +44,6 @@ const servicePhotos = [
   },
 ];
 
-const services = [
-  {
-    icon: Scissors,
-    title: "Banho e Tosa",
-    desc: "Serviço completo de higiene com produtos hipoalergênicos. Tosas estilosas e confortáveis para todas as raças.",
-    features: [
-      "Banho premium",
-      "Tosa completa",
-      "Hidratação",
-      "Corte de unhas",
-    ],
-  },
-  {
-    icon: Stethoscope,
-    title: "Consultas Veterinárias",
-    desc: "Atendimento clínico geral com veterinários experientes. Prevenção e tratamento para seu pet.",
-    features: [
-      "Check-up geral",
-      "Vacinação",
-      "Exames laboratoriais",
-      "Emergência 24h",
-    ],
-  },
-  {
-    icon: Hotel,
-    title: "Hotel para Pets",
-    desc: "Hospedagem com todo conforto e segurança. Seu pet relaxando enquanto você viaja.",
-    features: [
-      "Suítes individuais",
-      "Área de lazer",
-      "Monitoramento 24h",
-      "Alimentação inclusa",
-    ],
-  },
-  {
-    icon: BookOpen,
-    title: "Adestramento",
-    desc: "Treinamento profissional com técnicas positivas. Comportamento e obediência para uma convivência harmoniosa.",
-    features: [
-      "Adestramento básico",
-      "Correção comportamental",
-      "Socialização",
-      "Aulas individuais",
-    ],
-  },
-  {
-    icon: Bone,
-    title: "Nutrição Animal",
-    desc: "Consultoria nutricional personalizada. A alimentação ideal para cada fase da vida do seu pet.",
-    features: [
-      "Rações premium",
-      "Dietas especiais",
-      "Suplementação",
-      "Petiscos naturais",
-    ],
-  },
-  {
-    icon: ShoppingBag,
-    title: "Pet Shop",
-    desc: "Variedade de produtos: brinquedos, acessórios, roupas e muito mais para seu pet.",
-    features: [
-      "Brinquedos interativos",
-      "Roupas e acessórios",
-      "Camas e casinhas",
-      "Coleiras e guias",
-    ],
-  },
-];
-
 export default function Services() {
   return (
     <div>
@@ -131,33 +66,41 @@ export default function Services() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="group p-8 rounded-sm border border-gray-100 hover:border-amber-200 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-200 transition-colors">
-                  <service.icon className="h-6 w-6 text-amber-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  {service.desc}
-                </p>
-                <ul className="space-y-2">
-                  {service.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-center gap-2 text-sm text-gray-600"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {servicesData.map((service) => {
+              const Icon = iconMap[service.icon] || ShoppingBag
+              return (
+                <Link
+                  key={service.id}
+                  to={`/servicos/${service.id}`}
+                  className="group p-8 rounded-sm border border-gray-100 hover:border-amber-200 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="w-12 h-12 bg-amber-100 rounded-sm flex items-center justify-center mb-5 group-hover:bg-amber-200 transition-colors">
+                    <Icon className="h-6 w-6 text-amber-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                    {service.shortDesc}
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {service.features.slice(0, 4).map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-center gap-2 text-sm text-gray-600"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="inline-flex items-center gap-1 text-sm font-medium text-amber-600 group-hover:gap-2 transition-all">
+                    Ver detalhes
+                    <ChevronRight className="h-4 w-4" />
+                  </span>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -297,7 +240,7 @@ export default function Services() {
 
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-12 shadow-sm border border-gray-100 text-center">
+          <div className="bg-white rounded-sm p-12 shadow-sm border border-gray-100 text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Preços especiais para pacotes
             </h2>

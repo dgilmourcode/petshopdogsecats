@@ -76,7 +76,7 @@ export default function PromoBanner({
             {slide.link && (
               <Link
                 to={slide.link}
-                className="mt-4 inline-flex items-center gap-1.5 px-5 h-10 bg-amber-400 hover:bg-amber-500 text-gray-900 text-sm font-semibold rounded-lg transition-colors"
+                className="mt-4 inline-flex items-center gap-1.5 px-5 h-10 bg-amber-400 hover:bg-amber-500 text-gray-900 text-sm font-semibold rounded-sm transition-colors"
               >
                 Aproveitar
                 <ChevronRight className="h-4 w-4" />

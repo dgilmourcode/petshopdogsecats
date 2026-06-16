@@ -37,27 +37,26 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2">
-              <PawPrint className="h-5 w-5 text-amber-500" />
-              <span className="text-base font-semibold text-gray-900">
-                PetShop{" "}
-                <span className="text-amber-500">Dogs&amp;Cats</span>
-              </span>
-            </Link>
-            <p className="text-sm text-gray-500 leading-relaxed">
-              Cuidando do seu pet com amor e dedicação. Produtos e serviços de
-              qualidade para o bem-estar do seu melhor amigo.
-            </p>
-          </div>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-12">
+          <Link to="/" className="inline-flex items-center gap-2.5 mb-4">
+            <PawPrint className="h-7 w-7 text-amber-500" />
+            <span className="text-xl font-bold text-gray-900">
+              PetShop <span className="text-amber-500">Dogs&amp;Cats</span>
+            </span>
+          </Link>
+          <p className="text-sm text-gray-500 leading-relaxed max-w-md mx-auto">
+            Cuidando do seu pet com amor e dedicação. Produtos e serviços de
+            qualidade para o bem-estar do seu melhor amigo.
+          </p>
+        </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16 mb-12">
+          <div className="text-center">
+            <h3 className="text-xs font-semibold text-gray-900 uppercase tracking-widest mb-4">
               Navegação
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {[
                 { to: "/", label: "Início" },
                 { to: "/produtos", label: "Produtos" },
@@ -77,40 +76,45 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">
+          <div className="text-center">
+            <h3 className="text-xs font-semibold text-gray-900 uppercase tracking-widest mb-4">
               Serviços
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {[
-                "Banho e Tosa",
-                "Consultas Veterinárias",
-                "Hotel para Pets",
-                "Adestramento",
+                { label: "Banho e Tosa", to: "/servicos/banho-e-tosa" },
+                { label: "Consultas Veterinárias", to: "/servicos/consultas-veterinarias" },
+                { label: "Hotel para Pets", to: "/servicos/hotel-para-pets" },
+                { label: "Adestramento", to: "/servicos/adestramento" },
               ].map((s) => (
-                <li key={s}>
-                  <span className="text-sm text-gray-500">{s}</span>
+                <li key={s.label}>
+                  <Link
+                    to={s.to}
+                    className="text-sm text-gray-500 hover:text-amber-500 transition-colors"
+                  >
+                    {s.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">
+          <div className="text-center">
+            <h3 className="text-xs font-semibold text-gray-900 uppercase tracking-widest mb-4">
               Contato
             </h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />
+              <li className="flex items-center justify-center gap-2">
+                <MapPin className="h-4 w-4 text-amber-500 shrink-0" />
                 <span className="text-sm text-gray-500">
                   Rua dos Animais, 123
                 </span>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center justify-center gap-2">
                 <Phone className="h-4 w-4 text-amber-500 shrink-0" />
                 <span className="text-sm text-gray-500">(11) 99999-8888</span>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center justify-center gap-2">
                 <Mail className="h-4 w-4 text-amber-500 shrink-0" />
                 <span className="text-sm text-gray-500">
                   contato@petshopdogsandcats.com.br
@@ -120,25 +124,25 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-400 order-2 sm:order-1">
-            &copy; {new Date().getFullYear()} PetShop Dogs&amp;Cats. Todos os direitos
-            reservados.
-          </p>
-          <div className="flex items-center gap-3 order-1 sm:order-2">
+        <div className="border-t border-gray-200 pt-8 flex flex-col items-center gap-6">
+          <div className="flex items-center gap-4">
             {socialLinks.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-amber-500 transition-colors"
+                className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-amber-500 hover:border-amber-300 transition-all"
                 aria-label={s.label}
               >
                 {s.svg}
               </a>
             ))}
           </div>
+          <p className="text-sm text-gray-400">
+            &copy; {new Date().getFullYear()} PetShop Dogs&amp;Cats. Todos os direitos
+            reservados.
+          </p>
         </div>
       </div>
     </footer>
