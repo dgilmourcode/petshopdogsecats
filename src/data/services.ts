@@ -43,7 +43,7 @@ export const servicesData: ServiceItem[] = [
     icon: "Stethoscope",
     photos: [
       "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=600&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1582755333440-5d4c1b5a4c3a?w=800&h=600&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&h=600&fit=crop&q=80",
       "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=800&h=600&fit=crop&q=80",
     ],
     features: [
@@ -86,7 +86,7 @@ export const servicesData: ServiceItem[] = [
     price: "A partir de R$ 99,90/aula",
     icon: "BookOpen",
     photos: [
-      "https://images.unsplash.com/photo-1553882809-a4f57e595701?w=800&h=600&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1552053831-71594a27632d?w=800&h=600&fit=crop&q=80",
       "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&h=600&fit=crop&q=80",
       "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=800&h=600&fit=crop&q=80",
     ],

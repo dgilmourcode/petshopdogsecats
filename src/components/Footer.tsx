@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
-import { PawPrint, Mail, MapPin, Phone } from "lucide-react"
+import { PawPrint, Mail, Globe, Phone } from "lucide-react"
 
 const socialLinks = [
   {
-    href: "https://instagram.com/petshopdogsandcats",
+    href: "https://www.instagram.com/dgilmourcode/",
     label: "Instagram",
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
@@ -14,7 +14,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "https://facebook.com/petshopdogsandcats",
+    href: "https://www.facebook.com/dgilmourcode/",
     label: "Facebook",
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
@@ -23,12 +23,13 @@ const socialLinks = [
     ),
   },
   {
-    href: "https://youtube.com/@petshopdogsandcats",
-    label: "YouTube",
+    href: "https://www.linkedin.com/in/dgilmourcode/",
+    label: "LinkedIn",
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-        <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect width="4" height="12" x="2" y="9" />
+        <circle cx="4" cy="4" r="2" />
       </svg>
     ),
   },
@@ -105,19 +106,24 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li className="flex items-center justify-center gap-2">
-                <MapPin className="h-4 w-4 text-amber-500 shrink-0" />
-                <span className="text-sm text-gray-500">
-                  Rua dos Animais, 123
-                </span>
+                <Globe className="h-4 w-4 text-amber-500 shrink-0" />
+                <a
+                  href="https://dgilmourcode.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-500 hover:text-amber-500 transition-colors"
+                >
+                  dgilmourcode.vercel.app
+                </a>
               </li>
               <li className="flex items-center justify-center gap-2">
                 <Phone className="h-4 w-4 text-amber-500 shrink-0" />
-                <span className="text-sm text-gray-500">(11) 99999-8888</span>
+                <span className="text-sm text-gray-500">(86) 99493-6797</span>
               </li>
               <li className="flex items-center justify-center gap-2">
                 <Mail className="h-4 w-4 text-amber-500 shrink-0" />
                 <span className="text-sm text-gray-500">
-                  contato@petshopdogsandcats.com.br
+                  dgilmourcode@gmail.com
                 </span>
               </li>
             </ul>

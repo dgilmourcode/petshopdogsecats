@@ -9,6 +9,7 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
+  MessageCircle,
 } from "lucide-react";
 import { products, categories } from "@/data/products";
 import { promotions } from "@/data/promotions";
@@ -302,6 +303,15 @@ export default function Products() {
                           </span>
                         )}
                       </div>
+                      <a
+                        href={`https://wa.me/5586994936797?text=Ol%C3%A1!%20Tenho%20interesse%20no%20produto%20${encodeURIComponent(product.title)}%20-%20${formatPrice(product.price)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 w-full inline-flex items-center justify-center gap-1.5 bg-green-500 hover:bg-green-600 text-white text-xs font-semibold rounded-sm h-9 transition-colors"
+                      >
+                        <MessageCircle className="h-3.5 w-3.5" />
+                        Comprar via WhatsApp
+                      </a>
                     </div>
                   </div>
                 ))}

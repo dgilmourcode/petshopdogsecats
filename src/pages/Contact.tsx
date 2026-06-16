@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Mail, MapPin, Phone, Clock, Send, PawPrint, MessageCircle } from "lucide-react"
+import { Mail, Globe, Phone, Clock, Send, PawPrint, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -7,19 +7,19 @@ import { Label } from "@/components/ui/label"
 
 const contactInfo = [
   {
-    icon: MapPin,
-    title: "Endereço",
-    details: ["Rua dos Animais, 123", "Jardim Pet - São Paulo, SP"],
+    icon: Globe,
+    title: "Portfólio",
+    details: ["dgilmourcode.vercel.app"],
   },
   {
     icon: Phone,
     title: "Telefone",
-    details: ["(11) 99999-8888", "(11) 3333-4444"],
+    details: ["(86) 99493-6797"],
   },
   {
     icon: Mail,
     title: "E-mail",
-    details: ["contato@petshopdogsandcats.com.br", "vendas@petshopdogsandcats.com.br"],
+    details: ["dgilmourcode@gmail.com"],
   },
   {
     icon: Clock,
@@ -95,7 +95,7 @@ export default function Contact() {
                 </h3>
                 <div className="flex items-center gap-3">
                   <a
-                    href="https://instagram.com/petshopdogsandcats"
+                    href="https://www.instagram.com/dgilmourcode/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-amber-500 hover:border-amber-300 transition-all"
@@ -108,7 +108,7 @@ export default function Contact() {
                     </svg>
                   </a>
                   <a
-                    href="https://facebook.com/petshopdogsandcats"
+                    href="https://www.facebook.com/dgilmourcode/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-amber-500 hover:border-amber-300 transition-all"
@@ -119,19 +119,32 @@ export default function Contact() {
                     </svg>
                   </a>
                   <a
-                    href="https://youtube.com/@petshopdogsandcats"
+                    href="https://www.linkedin.com/in/dgilmourcode/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-amber-500 hover:border-amber-300 transition-all"
-                    aria-label="YouTube"
+                    aria-label="LinkedIn"
                   >
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-                      <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                      <rect width="4" height="12" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
                     </svg>
                   </a>
                   <a
-                    href="https://wa.me/5511999998888"
+                    href="https://github.com/dgilmourcode/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-amber-500 hover:border-amber-300 transition-all"
+                    aria-label="GitHub"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                      <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://wa.me/5586994936797"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-amber-500 hover:border-amber-300 transition-all"

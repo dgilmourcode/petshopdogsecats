@@ -66,12 +66,14 @@ export default function ServiceDetail() {
                   {service.price}
                 </span>
               </div>
-              <Link
-                to="/contato"
+              <a
+                href={`https://wa.me/5586994936797?text=Ol%C3%A1!%20Tenho%20interesse%20no%20servi%C3%A7o%20de%20${encodeURIComponent(service.title)}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-sm px-8 h-12 transition-colors text-base"
               >
-                Solicitar Orçamento
-              </Link>
+                Contratar Serviço
+              </a>
             </div>
 
             <div className="relative">
@@ -161,12 +163,14 @@ export default function ServiceDetail() {
                   Entre em contato conosco para agendar ou solicitar um
                   orçamento personalizado. Respondemos em até 24 horas úteis.
                 </p>
-                <Link
-                  to="/contato"
+                <a
+                  href={`https://wa.me/5586994936797?text=Ol%C3%A1!%20Tenho%20interesse%20no%20servi%C3%A7o%20de%20${encodeURIComponent(service.title)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-sm px-8 h-12 transition-colors"
                 >
-                  Fale Conosco
-                </Link>
+                  Contratar Serviço
+                </a>
               </div>
               <div className="flex flex-wrap gap-4">
                 {[
