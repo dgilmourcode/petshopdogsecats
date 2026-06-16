@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom"
-import { ArrowRight, PawPrint, Shield, Heart, Star } from "lucide-react"
-import Gallery from "@/components/Gallery"
-import Testimonials from "@/components/Testimonials"
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, PawPrint, Tag } from "lucide-react";
+import Gallery from "@/components/Gallery";
+import Testimonials from "@/components/Testimonials";
+import { promotions } from "@/data/promotions";
 
 const petPhotos = [
   {
@@ -32,27 +34,21 @@ const petPhotos = [
     src: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop&q=80",
     alt: "Cachorro sendo tosado",
   },
-]
-
-const benefits = [
-  {
-    icon: Shield,
-    title: "Produtos Premium",
-    desc: "Selecionamos apenas o melhor para a saúde do seu pet.",
-  },
-  {
-    icon: Heart,
-    title: "Amor e Cuidado",
-    desc: "Tratamos cada animal como se fosse da nossa família.",
-  },
-  {
-    icon: Star,
-    title: "Profissionais Expert",
-    desc: "Equipe qualificada e apaixonada pelo que faz.",
-  },
-]
+];
 
 export default function Home() {
+  const [promoIdx, setPromoIdx] = useState(0);
+  const [visibleIdx, setVisibleIdx] = useState(0);
+
+  useEffect(() => {
+    if (promotions.length <= 1) return;
+    const id = setInterval(() => {
+      setPromoIdx((prev) => (prev + 1) % promotions.length);
+      setVisibleIdx((prev) => 1 - prev);
+    }, 5000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div>
       <section className="min-h-screen flex items-center relative overflow-hidden">
@@ -115,29 +111,95 @@ export default function Home() {
 
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Por que escolher a gente?
-            </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">
-              Nos dedicamos a oferecer a melhor experiência para você e seu pet.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {benefits.map((item) => (
-              <div
-                key={item.title}
-                className="group p-8 rounded-2xl border border-gray-100 hover:border-amber-200 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-200 transition-colors">
-                  <item.icon className="h-6 w-6 text-amber-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 rounded-full text-amber-700 text-xs font-semibold mb-4">
+                <Tag className="h-3 w-3" />
+                Ofertas da Semana
               </div>
-            ))}
+              <h2 className="text-4xl font-bold text-gray-900 leading-tight mb-4">
+                Promoções <span className="text-amber-500">imperdíveis</span>
+              </h2>
+              <p className="text-gray-500 leading-relaxed mb-8">
+                Aproveite descontos especiais em produtos selecionados. Ofertas
+                por tempo limitado para cuidar do seu pet com o melhor preço.
+              </p>
+              <Link
+                to="/produtos"
+                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg px-6 h-11 transition-colors"
+              >
+                Ver Todas as Ofertas
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="relative overflow-hidden rounded-sm bg-gray-900 min-h-[280px]">
+              {[0, 1].map((slot) => {
+                const isVisible = slot === visibleIdx;
+                const idx =
+                  slot === 0 ? promoIdx : (promoIdx + 1) % promotions.length;
+                const promo = promotions[idx];
+                return (
+                  <Link
+                    key={slot}
+                    to={promo.link || "/produtos"}
+                    className="absolute inset-0 transition-all duration-500"
+                    style={{
+                      transform: isVisible
+                        ? "translateX(0)"
+                        : "translateX(100%)",
+                      opacity: isVisible ? 1 : 0,
+                      zIndex: isVisible ? 1 : 0,
+                    }}
+                  >
+                    <div className="absolute inset-0">
+                      <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-900/65 to-transparent z-10" />
+                      <img
+                        src={promo.image}
+                        alt=""
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="relative z-20 h-full flex items-center px-6 sm:px-10">
+                      <div className="flex items-center justify-between w-full gap-4">
+                        <div>
+                          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-400/10 border border-amber-400/20 rounded-full text-amber-300 text-[11px] font-semibold uppercase tracking-wider mb-3">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                            Oferta Especial
+                          </div>
+                          <h3 className="text-xl sm:text-2xl font-bold text-white">
+                            {promo.title}
+                          </h3>
+                          <p className="text-sm text-white/60 mt-1">
+                            {promo.description}
+                          </p>
+                        </div>
+                        <div className="text-right shrink-0">
+                          <span className="text-4xl sm:text-5xl font-bold text-amber-400 block leading-none">
+                            -{promo.discount}%
+                          </span>
+                          {promo.code && (
+                            <span className="text-xs text-white/50 border border-white/10 bg-white/5 px-2 py-1 inline-block mt-2 font-mono rounded">
+                              {promo.code}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-30">
+                {promotions.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`block h-1.5 rounded-full transition-all ${
+                      i === promoIdx ? "w-5 bg-amber-400" : "w-1.5 bg-white/30"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -146,7 +208,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="grid grid-cols-2 gap-3">
-              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden border border-gray-200">
+              <div className="aspect-square bg-gray-100 rounded-sm overflow-hidden border border-gray-200">
                 <img
                   src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=300&h=300&fit=crop&q=80"
                   alt="Brinquedos para pets"
@@ -154,7 +216,7 @@ export default function Home() {
                   loading="lazy"
                 />
               </div>
-              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 mt-6">
+              <div className="aspect-square bg-gray-100 rounded-sm overflow-hidden border border-gray-200 mt-6">
                 <img
                   src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=300&h=300&fit=crop&q=80"
                   alt="Alimentação"
@@ -162,7 +224,7 @@ export default function Home() {
                   loading="lazy"
                 />
               </div>
-              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 -mt-6">
+              <div className="aspect-square bg-gray-100 rounded-sm overflow-hidden border border-gray-200 -mt-6">
                 <img
                   src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=300&h=300&fit=crop&q=80"
                   alt="Conforto"
@@ -170,7 +232,7 @@ export default function Home() {
                   loading="lazy"
                 />
               </div>
-              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden border border-gray-200">
+              <div className="aspect-square bg-gray-100 rounded-sm overflow-hidden border border-gray-200">
                 <img
                   src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=300&h=300&fit=crop&q=80"
                   alt="Higiene"
@@ -184,8 +246,7 @@ export default function Home() {
                 Produtos
               </span>
               <h2 className="text-4xl font-bold text-gray-900 leading-tight mb-4">
-                Tudo que seu pet{" "}
-                <span className="text-amber-500">merece</span>
+                Tudo que seu pet <span className="text-amber-500">merece</span>
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
                 De rações premium a brinquedos interativos, passando por camas
@@ -218,9 +279,9 @@ export default function Home() {
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
                 Nossa equipe é formada por profissionais apaixonados por
-                animais. Cada banho, cada atendimento, cada produto
-                selecionado passa pelo nosso cuidado para garantir a melhor
-                experiência para você e seu pet.
+                animais. Cada banho, cada atendimento, cada produto selecionado
+                passa pelo nosso cuidado para garantir a melhor experiência para
+                você e seu pet.
               </p>
               <ul className="space-y-3">
                 {[
@@ -239,7 +300,7 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <div className="aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden border border-gray-200">
+            <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden border border-gray-200">
               <img
                 src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=600&h=450&fit=crop&q=80"
                 alt="Equipe PetShop Dogs&Cats"
@@ -291,9 +352,9 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+              <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden border border-gray-200 shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&h=450&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=450&fit=crop&q=80"
                   alt="PetShop Dogs&Cats"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -304,5 +365,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-  )
+  );
 }

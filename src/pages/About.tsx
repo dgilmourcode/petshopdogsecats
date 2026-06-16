@@ -1,5 +1,31 @@
-import { Link } from "react-router-dom"
-import { PawPrint, Target, Users, Award, Heart } from "lucide-react"
+import { Link } from "react-router-dom";
+import {
+  PawPrint,
+  Target,
+  Users,
+  Award,
+  Heart,
+  Shield,
+  Star,
+} from "lucide-react";
+
+const benefits = [
+  {
+    icon: Shield,
+    title: "Produtos Premium",
+    desc: "Selecionamos apenas o melhor para a saúde do seu pet.",
+  },
+  {
+    icon: Heart,
+    title: "Amor e Cuidado",
+    desc: "Tratamos cada animal como se fosse da nossa família.",
+  },
+  {
+    icon: Star,
+    title: "Profissionais Expert",
+    desc: "Equipe qualificada e apaixonada pelo que faz.",
+  },
+];
 
 const values = [
   {
@@ -22,12 +48,12 @@ const values = [
     title: "Excelência",
     desc: "Buscamos constantemente a mais alta qualidade em produtos e atendimento.",
   },
-]
+];
 
 export default function About() {
   return (
     <div>
-      <section className="pt-16 md:pt-24 pb-20 bg-gradient-to-br from-amber-50 via-white to-orange-50">
+      <section className="pt-16 md:pt-24 pb-20 bg-linear-to-br from-amber-50 via-white to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
@@ -40,9 +66,9 @@ export default function About() {
                 <span className="text-amber-500">uma família</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
-                O PetShop Dogs&amp;Cats nasceu da paixão por animais. Desde 2014, nos
-                dedicamos a oferecer produtos e serviços que promovem a saúde e
-                felicidade dos pets.
+                O PetShop Dogs&amp;Cats nasceu da paixão por animais. Desde
+                2014, nos dedicamos a oferecer produtos e serviços que promovem
+                a saúde e felicidade dos pets.
               </p>
               <p className="text-gray-500 leading-relaxed">
                 Acreditamos que cada animal merece cuidado personalizado. Nossa
@@ -51,7 +77,7 @@ export default function About() {
               </p>
             </div>
             <div className="relative">
-              <div className="w-full aspect-square rounded-3xl overflow-hidden shadow-lg">
+              <div className="w-full aspect-square rounded-sm overflow-hidden shadow-lg">
                 <img
                   src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=600&h=600&fit=crop&crop=center&q=80"
                   alt="Cachorro feliz"
@@ -66,7 +92,7 @@ export default function About() {
 
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {[
               { number: "+500", label: "Pets atendidos" },
               { number: "10+", label: "Anos de mercado" },
@@ -81,6 +107,35 @@ export default function About() {
                   {stat.number}
                 </p>
                 <p className="text-gray-600">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Por que escolher a gente?
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              Nos dedicamos a oferecer a melhor experiência para você e seu pet.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {benefits.map((item) => (
+              <div
+                key={item.title}
+                className="group p-8 rounded-2xl border border-gray-100 hover:border-amber-200 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-200 transition-colors">
+                  <item.icon className="h-6 w-6 text-amber-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -138,5 +193,5 @@ export default function About() {
         </div>
       </section>
     </div>
-  )
+  );
 }
