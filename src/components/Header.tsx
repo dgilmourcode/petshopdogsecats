@@ -4,8 +4,9 @@ import { Menu, X, PawPrint } from "lucide-react"
 
 const navLinks = [
   { href: "/", label: "Início" },
-  { href: "/sobre", label: "Sobre" },
+  { href: "/produtos", label: "Produtos" },
   { href: "/servicos", label: "Serviços" },
+  { href: "/sobre", label: "Sobre" },
   { href: "/contato", label: "Contato" },
 ]
 

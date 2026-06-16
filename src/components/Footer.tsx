@@ -60,8 +60,9 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { to: "/", label: "Início" },
-                { to: "/sobre", label: "Sobre" },
+                { to: "/produtos", label: "Produtos" },
                 { to: "/servicos", label: "Serviços" },
+                { to: "/sobre", label: "Sobre" },
                 { to: "/contato", label: "Contato" },
               ].map((link) => (
                 <li key={link.to}>

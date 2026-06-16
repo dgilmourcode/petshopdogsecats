@@ -142,6 +142,115 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden border border-gray-200">
+                <img
+                  src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=300&h=300&fit=crop&q=80"
+                  alt="Brinquedos para pets"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 mt-6">
+                <img
+                  src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=300&h=300&fit=crop&q=80"
+                  alt="Alimentação"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 -mt-6">
+                <img
+                  src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=300&h=300&fit=crop&q=80"
+                  alt="Conforto"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden border border-gray-200">
+                <img
+                  src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=300&h=300&fit=crop&q=80"
+                  alt="Higiene"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div>
+              <span className="inline-block text-amber-500 text-sm font-semibold uppercase tracking-widest mb-4">
+                Produtos
+              </span>
+              <h2 className="text-4xl font-bold text-gray-900 leading-tight mb-4">
+                Tudo que seu pet{" "}
+                <span className="text-amber-500">merece</span>
+              </h2>
+              <p className="text-gray-500 leading-relaxed mb-6">
+                De rações premium a brinquedos interativos, passando por camas
+                confortáveis, vasilhas, medicamentos e acessórios para passeio.
+                Trabalhamos com as melhores marcas para garantir a saúde e
+                felicidade do seu melhor amigo.
+              </p>
+              <Link
+                to="/produtos"
+                className="inline-flex items-center gap-2 text-amber-600 font-medium hover:text-amber-700 transition-colors"
+              >
+                Ver todos os produtos
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div>
+              <span className="inline-block text-amber-500 text-sm font-semibold uppercase tracking-widest mb-4">
+                Como trabalhamos
+              </span>
+              <h2 className="text-4xl font-bold text-gray-900 leading-tight mb-4">
+                Amor e profissionalismo{" "}
+                <span className="text-amber-500">em cada detalhe</span>
+              </h2>
+              <p className="text-gray-500 leading-relaxed mb-6">
+                Nossa equipe é formada por profissionais apaixonados por
+                animais. Cada banho, cada atendimento, cada produto
+                selecionado passa pelo nosso cuidado para garantir a melhor
+                experiência para você e seu pet.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Equipe treinada e certificada",
+                  "Produtos de marcas confiáveis",
+                  "Ambiente limpo e seguro",
+                  "Atendimento personalizado",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2 text-sm text-gray-600"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden border border-gray-200">
+              <img
+                src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=600&h=450&fit=crop&q=80"
+                alt="Equipe PetShop Dogs&Cats"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Gallery
         images={petPhotos}
         title="Pets bem cuidados"
@@ -151,29 +260,45 @@ export default function Home() {
 
       <Testimonials />
 
-      <section className="py-16 md:py-24 bg-gradient-to-br from-amber-50 via-white to-orange-50">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-amber-50 via-white to-orange-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl md:rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Pronto para cuidar do seu pet?
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto mb-8">
-              Agende uma visita ou entre em contato. Estamos prontos para
-              receber você e seu melhor amigo.
-            </p>
-              <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                to="/contato"
-                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-full px-8 h-11 transition-colors"
-              >
-                Agendar Visita
-              </Link>
-              <Link
-                to="/sobre"
-                className="inline-flex items-center gap-2 border border-gray-300 bg-background hover:bg-muted text-foreground font-medium rounded-full px-8 h-11 transition-colors"
-              >
-                Conheça Nossa História
-              </Link>
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div>
+              <span className="inline-block text-amber-500 text-sm font-semibold uppercase tracking-widest mb-4">
+                Vem nos visitar
+              </span>
+              <h2 className="text-4xl font-bold text-gray-900 leading-tight mb-4">
+                Pronto para cuidar{" "}
+                <span className="text-amber-500">do seu pet?</span>
+              </h2>
+              <p className="text-gray-500 leading-relaxed mb-8">
+                Agende uma visita, conheça nossa estrutura e descubra por que
+                somos a escolha certa para quem ama seu pet.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/contato"
+                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-full px-8 h-11 transition-colors"
+                >
+                  Agendar Visita
+                </Link>
+                <Link
+                  to="/sobre"
+                  className="inline-flex items-center gap-2 border border-gray-300 bg-background hover:bg-muted text-foreground font-medium rounded-full px-8 h-11 transition-colors"
+                >
+                  Conheça Nossa História
+                </Link>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&h=450&fit=crop&q=80"
+                  alt="PetShop Dogs&Cats"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>

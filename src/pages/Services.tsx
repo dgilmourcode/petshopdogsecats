@@ -139,6 +139,62 @@ export default function Services() {
         carousel
       />
 
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 md:mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Formas de pagamento
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              Parcele em até 12x ou pague à vista com desconto.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+            {[
+              { label: "Visa", svg: (
+                <svg viewBox="0 0 24 24" className="h-8 md:h-10 w-auto" fill="currentColor">
+                  <path d="M9.5 4.5l-2.2 6.5h2.2l2.2-6.5H9.5z" />
+                  <path d="M17.5 7.2c-.7-.3-1.8-.6-3.2-.6-3.5 0-6 1.8-6 4.3 0 1.9 1.7 2.9 3 3.5 1.4.6 1.8 1 1.8 1.5 0 .8-.9 1.2-1.7 1.2-1.1 0-1.7-.2-2.6-.5l-.4-.2-.4 2.3c.8.3 2.3.6 3.8.6 3.6 0 6-1.7 6-4.4 0-1.5-.9-2.6-2.8-3.5-1.2-.5-1.9-.9-1.9-1.4 0-.5.6-1 1.9-1 1.1 0 1.9.2 2.5.4l.3.1.4-2.2z" />
+                  <path d="M22.5 5.3l-1.5 8.7h1.9l1.5-8.7h-1.9z" />
+                  <path d="M20.7 2.8c-1.7 0-2.8.8-3.4 2.3l1.8.7c.4-.7.8-1 1.6-1 .5 0 1.2.2 1.2.7 0 .4-.3.6-.8 1-.6.5-1.4 1.1-2 1.9-.6.8-.9 1.7-.9 2.7 0 1.2.8 2 2.1 2 1 0 1.8-.5 2.3-.9l.1 2h2l1.5-8.7h-1.6l-.3 1.7c-.4-.5-1.1-.9-2.1-.9-1.3 0-2.1.7-2.1 1.7 0 .5.2.9.6 1.2.2.2.5.4.9.6.3.1.7.3 1.1.5.7.3 1.3.7 1.8 1.2.4.5.7 1.1.7 1.9 0 1.7-1.4 2.9-3.5 2.9-1.5 0-2.8-.5-3.7-1.2l.5-2.4c.7.6 1.6 1 2.6 1 .9 0 1.4-.4 1.4-1s-.5-1-1.2-1.4c-.3-.1-.7-.3-1.2-.5-1.8-.8-2.9-1.9-2.9-3.6 0-1.7 1.4-3.1 3.8-3.1 1.4 0 2.4.4 3.1.9l-.7 2.5z" opacity="0.3" />
+                </svg>
+              )},
+              { label: "Mastercard", svg: (
+                <svg viewBox="0 0 24 24" className="h-8 md:h-10 w-auto" fill="currentColor" opacity="0.6">
+                  <circle cx="9" cy="12" r="7" />
+                  <circle cx="15" cy="12" r="7" opacity="0.5" />
+                </svg>
+              )},
+              { label: "Elo", svg: (
+                <svg viewBox="0 0 32 24" className="h-8 md:h-10 w-auto" fill="currentColor" opacity="0.7">
+                  <rect x="2" y="4" width="28" height="16" rx="3" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                  <text x="16" y="15.5" textAnchor="middle" fontSize="7" fontWeight="bold" fill="currentColor">ELO</text>
+                </svg>
+              )},
+              { label: "Pix", svg: (
+                <svg viewBox="0 0 24 24" className="h-8 md:h-10 w-auto" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.7">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M8.5 12l2.5 2.5 4.5-4.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              )},
+              { label: "Boleto", svg: (
+                <svg viewBox="0 0 24 24" className="h-8 md:h-10 w-auto" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.7">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <line x1="7" y1="9" x2="7" y2="15" />
+                  <line x1="12" y1="9" x2="12" y2="15" />
+                  <line x1="17" y1="9" x2="17" y2="15" />
+                </svg>
+              )},
+            ].map((pm) => (
+              <div key={pm.label} className="flex flex-col items-center gap-1">
+                {pm.svg}
+                <span className="text-xs text-gray-400 font-medium">{pm.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl p-12 shadow-sm border border-gray-100 text-center">
