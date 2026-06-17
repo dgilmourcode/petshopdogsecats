@@ -31,14 +31,14 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50">
       {promoOpen && (
         <div className="bg-gray-900 text-white text-xs sm:text-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-9">
-            <div className="flex-1" />
-            <div className="flex-1 text-center text-amber-100/80 animate-fadeIn">
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 flex items-center justify-center sm:justify-between min-h-9">
+            <div className="hidden sm:block flex-1" />
+            <div className="flex-1 sm:flex-none text-center text-amber-100/80 animate-fadeIn px-6 sm:px-0 leading-tight truncate sm:overflow-visible sm:whitespace-normal">
               {currentPromo}
             </div>
             <button
               onClick={() => setPromoOpen(false)}
-              className="flex-1 flex justify-end text-white/50 hover:text-white transition-colors"
+              className="absolute right-1 sm:relative sm:flex sm:flex-1 sm:justify-end text-white/50 hover:text-white transition-colors"
             >
               <CloseIcon className="h-3.5 w-3.5" />
             </button>

@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import {
   ShoppingBag,
@@ -26,7 +26,9 @@ export default function Products() {
   const activeCategory = searchParams.get("categoria") || "";
   const [searchQuery, setSearchQuery] = useState("");
   const [filterOpen, setFilterOpen] = useState(!!activeCategory);
-  const [page, setPage] = useState(1);
+  const pageFromUrl = parseInt(searchParams.get("pagina") || "1", 10);
+  const [page, setPage] = useState(pageFromUrl > 0 ? pageFromUrl : 1);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const filtered = useMemo(() => {
     let result = products;
@@ -53,23 +55,54 @@ export default function Products() {
     return filtered.slice(start, start + PER_PAGE);
   }, [filtered, safePage]);
 
+  const goToPage = (p: number) => {
+    const next = Math.max(1, Math.min(p, totalPages));
+    if (next === safePage) return;
+    setPage(next);
+    const params = new URLSearchParams(searchParams);
+    if (next > 1) {
+      params.set("pagina", String(next));
+    } else {
+      params.delete("pagina");
+    }
+    setSearchParams(params, { replace: true });
+    setTimeout(() => {
+      if (gridRef.current) {
+        const y = gridRef.current.getBoundingClientRect().top + window.scrollY - 120;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }, 0);
+  };
+
+  const scrollToGrid = () => {
+    setTimeout(() => {
+      if (gridRef.current) {
+        const y = gridRef.current.getBoundingClientRect().top + window.scrollY - 120;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }, 0);
+  };
+
   const setCategory = (cat: string) => {
+    setPage(1);
     if (cat === activeCategory) {
       setSearchParams({});
     } else {
       setSearchParams(cat ? { categoria: cat } : {});
     }
-    setPage(1);
+    scrollToGrid();
   };
 
   const clearSearch = () => {
     setSearchQuery("");
     setPage(1);
+    scrollToGrid();
   };
 
   const clearCategory = () => {
-    setSearchParams({});
     setPage(1);
+    setSearchParams({});
+    scrollToGrid();
   };
 
   const hasActiveFilters = activeCategory || searchQuery.trim();
@@ -260,7 +293,7 @@ export default function Products() {
           ) : (
             <>
               {/* produtos */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              <div ref={gridRef} className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {paginated.map((product) => (
                   <div
                     key={product.id}
@@ -320,7 +353,7 @@ export default function Products() {
               {totalPages > 1 && (
                 <div className="flex items-center justify-center gap-1.5 mt-10">
                   <button
-                    onClick={() => setPage((p) => Math.max(1, p - 1))}
+                    onClick={() => goToPage(safePage - 1)}
                     disabled={safePage === 1}
                     className="flex items-center justify-center w-9 h-9 rounded-sm border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                   >
@@ -338,7 +371,7 @@ export default function Products() {
                     ) : (
                       <button
                         key={p}
-                        onClick={() => setPage(p)}
+                        onClick={() => goToPage(p)}
                         className={`flex items-center justify-center w-9 h-9 rounded-sm text-sm font-medium transition-all ${
                           safePage === p
                             ? "bg-gray-900 text-white shadow-sm"
@@ -351,7 +384,7 @@ export default function Products() {
                   )}
 
                   <button
-                    onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                    onClick={() => goToPage(safePage + 1)}
                     disabled={safePage === totalPages}
                     className="flex items-center justify-center w-9 h-9 rounded-sm border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                   >

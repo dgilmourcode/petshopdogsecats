@@ -53,9 +53,27 @@ export default function Home() {
     <div>
       <section className="min-h-screen flex items-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-white to-orange-50" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
+
+        <div className="absolute inset-0 z-[1] lg:hidden overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-l from-white/40 via-white/70 to-white" />
+          <div
+            className="absolute inset-0"
+            style={{
+              maskImage: "linear-gradient(to bottom, black 0%, black 50%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 50%, transparent 100%)",
+            }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544568100-847a948585b9?w=800&h=900&fit=crop&crop=center&q=80"
+              alt=""
+              className="w-full h-full object-cover opacity-40 scale-105"
+            />
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+            <div className="space-y-8 relative">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 rounded-full text-sm font-medium text-amber-700">
                 <PawPrint className="h-4 w-4" />
                 Bem-vindo ao PetShop Dogs&amp;Cats
@@ -85,7 +103,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:flex justify-center">
+            <div className="hidden lg:flex justify-end">
               <div className="relative">
                 <div className="w-96 h-96 rounded-full overflow-hidden shadow-lg">
                   <img
